@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/master/src/Core/System/SystemConfig/Schema/config.xsd">
+    <card>
+        <title>#EmizentechHidePrice# Settings</title>
+        <title lang="de-DE">#EmizentechHidePrice# Einstellungen</title>
+
+        <input-field type="bool">
+            <name>active</name>
+            <label>Active</label>
+            <label lang="de-DE">Aktiviert</label>
+        </input-field>
+
+        <input-field type="textarea">
+            <name>textarea</name>
+            <label>Price Reason</label>
+        </input-field>
+
+        <input-field type="single-select">
+    <name>productvariable</name>
+    <options>
+        <option>
+            <id>product</id>
+            <name>Product Config</name>
+        </option>
+        <option>
+            <id>global</id>
+            <name>Global Config</name>
+        </option>
+    </options>
+</input-field>
+
+    </card>
+</config>

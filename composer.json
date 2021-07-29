@@ -1,0 +1,26 @@
+{
+  "name": "emizentech/hide-price",
+  "description": "Hide Price",
+  "type": "shopware-platform-plugin",
+  "license": "proprietary",
+  "authors": [
+        {
+            "name": "Amit Samsukha",
+            "email" : "amit@emizentech.com",
+            "homepage": "https://www.emizentech.com/",
+            "role": "Manufacturer"
+        }
+    ],
+  "autoload": {
+    "psr-4": {
+      "Emizentech\\HidePrice\\": "src/"
+    }
+  },
+  "extra": {
+    "shopware-plugin-class": "Emizentech\\HidePrice\\EmizentechHidePrice",
+    "label": {
+      "de-DE": "Preis ausblenden",
+      "en-GB": "Hide Price"
+    }
+  }
+}

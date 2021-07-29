@@ -1,0 +1,92 @@
+{% sw_extends '@Storefront/storefront/component/product/card/box-standard.html.twig' %}
+
+{% block component_product_box %}
+    {% if product %}
+        {% set name = product.translated.name %}
+        {% set id = product.id %}
+        {% set cover = product.cover.media %}
+        {% set variation = product.variation %}
+
+        <div class="card product-box box-{{ layout }}">
+            {% block component_product_box_content %}
+                <div class="card-body">
+                    {% block component_product_box_badges %}
+                        {{ parent() }}
+                    {% endblock %}
+
+                    {% block component_product_box_rich_snippets %}
+                        {{ parent() }}
+                    {% endblock %}
+
+                    {% block component_product_box_image %}
+                        {{ parent() }}
+                    {% endblock %}
+
+                    {% block component_product_box_info %}
+                        <div class="product-info">
+
+                            {% block component_product_box_rating %}
+                                {{ parent() }}
+                            {% endblock %}
+
+                            {% block component_product_box_name %}
+                                {{ parent() }}
+                            {% endblock %}
+
+                            {% block component_product_box_variant_characteristics %}
+                                {{ parent() }}
+                            {% endblock %}
+
+                            {% block component_product_box_description %}
+                                {{ parent() }}
+                            {% endblock %}
+                            {% if  shopware.config.EmizentechHidePrice.config.active and
+                                   shopware.config.EmizentechHidePrice.config.active is defined and
+                                   shopware.config.EmizentechHidePrice.config.active is not null and
+                                   shopware.config.EmizentechHidePrice.config.active|length > 0 
+                        
+                            %}
+                               
+                                     {% block page_product_detail_product_buy_button %}
+
+                                      {% if shopware.config.EmizentechHidePrice.config.productvariable|trans|sw_sanitize == "product" %}
+
+                                       {% if  product.customFields['emizen_hideprice_button_text'] %}
+
+                                        <button class="btn btn-block btn-buy"
+                                                title=" {{ product.customFields['emizen_hideprice_button_text']|trans|sw_sanitize }}">
+                                            {{ product.customFields['emizen_hideprice_button_text']|trans|sw_sanitize }}
+                                        </button>
+
+                                        {% endif %}
+
+                                        {% else %}
+
+                                        {% if  shopware.config.EmizentechHidePrice.config.textarea %}
+
+                                         <button class="btn btn-block btn-buy"
+                                                title="{{  shopware.config.EmizentechHidePrice.config.textarea|trans|sw_sanitize }}">
+                                            {{  shopware.config.EmizentechHidePrice.config.textarea|trans|sw_sanitize }}
+                                        </button>
+
+                                        {% endif %}
+
+                                        {% endif %}
+
+                                    {% endblock %}
+                            {% else %}
+                                {% block component_product_box_price %}
+                                    {{ parent() }}
+                                {% endblock %}
+
+                                {% block component_product_box_action %}
+                                    {{ parent() }}
+                                {% endblock %}
+                            {% endif %}
+                        </div>
+                    {% endblock %}
+                </div>
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

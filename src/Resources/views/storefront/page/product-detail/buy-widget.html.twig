@@ -1,0 +1,77 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/buy-widget.html.twig' %}
+
+{% block page_product_detail_price %}
+   {% if  shopware.config.EmizentechHidePrice.config.active and
+           shopware.config.EmizentechHidePrice.config.active is defined and
+           shopware.config.EmizentechHidePrice.config.active is not null and
+           shopware.config.EmizentechHidePrice.config.active|length > 0 and
+           shopware.config.EmizentechHidePrice.config.active is defined and
+           shopware.config.EmizentechHidePrice.config.active is not null
+    %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+{% block page_product_detail_tax %}
+    {% if  shopware.config.EmizentechHidePrice.config.active and
+           shopware.config.EmizentechHidePrice.config.active is defined and
+           shopware.config.EmizentechHidePrice.config.active is not null and
+           shopware.config.EmizentechHidePrice.config.active|length > 0 and
+           shopware.config.EmizentechHidePrice.config.active is defined and
+           shopware.config.EmizentechHidePrice.config.active is not null
+    %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+{% block page_product_detail_buy_form %}
+    {% if  shopware.config.EmizentechHidePrice.config.active and
+           shopware.config.EmizentechHidePrice.config.active is defined and
+           shopware.config.EmizentechHidePrice.config.active is not null and
+           shopware.config.EmizentechHidePrice.config.active|length > 0 and
+           shopware.config.EmizentechHidePrice.config.active is defined and
+           shopware.config.EmizentechHidePrice.config.active is not null
+    %}
+      {% if page.product.active %}
+
+        <div class="product-detail-form-container">
+            {% block page_product_detail_buy_button_container %}
+            <div class="col-8">
+                {% block page_product_detail_buy_button %}
+
+                {% if shopware.config.EmizentechHidePrice.config.productvariable|trans|sw_sanitize == "product" %}
+
+                {% if  product.customFields['emizen_hideprice_button_text'] %}
+                   
+                    <button class="btn btn-primary"
+                            title="{{ page.product.customFields['emizen_hideprice_button_text']|trans|sw_sanitize }}"
+                            aria-label="{{ page.product.customFields['emizen_hideprice_button_text']|trans|sw_sanitize }}">
+                        {{ page.product.customFields['emizen_hideprice_button_text']|trans|sw_sanitize }}
+                    </button>
+
+                     {% endif %}
+
+                    {% else %}
+
+                    {% if  shopware.config.EmizentechHidePrice.config.textarea %}
+
+
+                     <button class="btn btn-primary"
+                            title="{{  shopware.config.EmizentechHidePrice.config.textarea|trans|sw_sanitize }}"
+                            aria-label="{{  shopware.config.EmizentechHidePrice.config.textarea|trans|sw_sanitize }}">
+                        {{  shopware.config.EmizentechHidePrice.config.textarea|trans|sw_sanitize }}
+                    </button>
+
+                    {% endif %}
+
+                    {% endif %}
+
+                {% endblock %}
+            </div>
+        {% endblock %}
+        </div>
+    {% endif %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
